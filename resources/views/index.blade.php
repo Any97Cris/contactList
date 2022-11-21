@@ -12,6 +12,14 @@
 <body>
     <div class="container">
         <div class="titulo">Lista de Contatos</div>
-      </div>
+        <div class="input-group mt-5">
+            <input type="text" value="Pesquisar contato...." class="form-control"> 
+            <div>
+                <a href="#" class="btn btn-warning">Pesquisar</a>
+                <a href="/cadastrar" class="btn btn-success">Cadastrar</a>
+            </div>           
+        </div>
+            
+    </div>
 </body>
 </html>
