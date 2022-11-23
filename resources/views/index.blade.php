@@ -22,15 +22,20 @@
 
         <h2 class="titulo mt-5">Contatos cadastrados</h2>
 
-        <div class="row row-cols-3 p-5">
+        <div class=" row row-cols-3 p-5">
+            @foreach($contatos as $contato)
             <div class="card col-md-3 mb-2">
-                <div class="card-body p-3">
-                    <h4>Nome:</h4>
-                    <p>Número:</p>
-                    <p>E-mail:</p>
-                    <p>Possui whatsapp</p>
+                <div class="card-body p-2">
+                    <h4>{{$contato->name}}</h4>
+                    <label class="font20 text-color-success">Número</label>
+                    <p>{{$contato->numberContact}}</p>
+                    <label class="font20 text-color-success">E-mail</label>
+                    <p>{{$contato->email}}</p>
+                    <label class="font20 text-color-success">Possui whatsapp </label>
+                    <p>{{$contato->whatsapp}}</p>
                 </div>            
             </div>  
+            @endforeach
         </div>           
     </div>
 </body>
