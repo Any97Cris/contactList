@@ -12,14 +12,26 @@
 <body>
     <div class="container">
         <div class="titulo">Lista de Contatos</div>
-        <div class="input-group mt-5">
+        <div class="mt-5">
             <input type="text" value="Pesquisar contato...." class="form-control"> 
-            <div>
+            <div class="mt-3 text-center">
                 <a href="#" class="btn btn-warning">Pesquisar</a>
-                <a href="/cadastrar" class="btn btn-success">Cadastrar</a>
-            </div>           
+                <a href="/cadastrar" class="btn btn-success">Cadastrar</a>        
+            </div>              
         </div>
-            
+
+        <h2 class="titulo mt-5">Contatos cadastrados</h2>
+
+        <div class="row row-cols-3 p-5">
+            <div class="card col-md-3 mb-2">
+                <div class="card-body p-3">
+                    <h4>Nome:</h4>
+                    <p>Número:</p>
+                    <p>E-mail:</p>
+                    <p>Possui whatsapp</p>
+                </div>            
+            </div>  
+        </div>           
     </div>
 </body>
 </html>
