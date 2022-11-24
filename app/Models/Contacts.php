@@ -10,4 +10,5 @@ class Contacts extends Model
     use HasFactory;
 
     protected $table= 'contatos';
+
 }
