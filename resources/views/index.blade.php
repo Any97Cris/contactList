@@ -16,7 +16,9 @@
             <input type="text" value="Pesquisar contato...." class="form-control"> 
             <div class="mt-3 text-center">
                 <a href="#" class="btn btn-warning">Pesquisar</a>
-                <a href="/cadastrar" class="btn btn-success">Cadastrar</a>        
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Cadastrar
+                </button>        
             </div>              
         </div>
 
@@ -36,7 +38,60 @@
                 </div>            
             </div>  
             @endforeach
-        </div>           
+        </div>     
+        
+        <!--INICIO MODAL CADASTRAR-->
+        <div class="modal-lg modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Contato</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="POST">
+                        <div class="form-group mb-3">
+                            <label for="name">Nome</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Digite o seu nome...">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="numberContact">Número para Contato</label>
+                            <input type="text" class="form-control" id="numberContact" name="numberContact" placeholder="DDD + Número">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email...">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="selecionarOpcao">Esse número possui whatsapp?</label>
+                            <div class="form-group">
+                                <input type="checkbox" name="whatsapp[]" value="Sim"> Sim
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" name="whatsapp[]" value="Nao"> Não
+                            </div>
+                        </div>
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <input type="submit" class="btn btn-primary" value="Salvar"/>
+                  </div>
+                </div>
+            </form>
+              </div>
+        </div>
+        <!--FIM MODAL CADASTRAR-->
+
     </div>
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
