@@ -25,7 +25,8 @@
         <h2 class="titulo mt-5">Contatos cadastrados</h2>
 
         <div class=" row row-cols-3 p-5">
-            @foreach($contatos as $contato)
+            @foreach($contatos as $contato)          
+
             <div class="card col-md-3 mb-2">
                 <div class="card-body p-2">
                     <h4>{{$contato->name}}</h4>
@@ -34,10 +35,11 @@
                     <label class="font20 text-color-success">E-mail</label>
                     <p>{{$contato->email}}</p>
                     <label class="font20 text-color-success">Possui whatsapp </label>
-                    <p>{{$contato->whatsapp}}</p>
+                    <p>{{$contato->status}}</p>
                 </div>            
             </div>  
             @endforeach
+
         </div>     
         
         <!--INICIO MODAL CADASTRAR-->
@@ -49,7 +51,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form action="POST">
+                    <form action="/cadastrar" method="POST">
+                        @csrf
                         <div class="form-group mb-3">
                             <label for="name">Nome</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Digite o seu nome...">
@@ -63,18 +66,12 @@
                         <div class="form-group mb-3">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email...">
-                        </div>
-
+                        </div> 
+                        
                         <div class="form-group mb-3">
-                            <label for="selecionarOpcao">Esse número possui whatsapp?</label>
-                            <div class="form-group">
-                                <input type="checkbox" name="whatsapp[]" value="Sim"> Sim
-                            </div>
-
-                            <div class="form-group">
-                                <input type="checkbox" name="whatsapp[]" value="Nao"> Não
-                            </div>
-                        </div>
+                            <label for="email">Possui Whatsapp?</label>
+                            <input type="text" class="form-control" id="status" name="status" placeholder="Digite Sim ou Não">
+                        </div> 
                     
                   </div>
                   <div class="modal-footer">
