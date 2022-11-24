@@ -15,3 +15,6 @@ use App\Http\Controllers\ContactsController;
 */
 
 Route::get('/', [ContactsController::class, 'index']);
+
+//Rota para cadastrar
+Route::post('/cadastrar', [ContactsController::class, 'create']);
