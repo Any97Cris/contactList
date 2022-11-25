@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
     <div class="container">
         <div class="titulo">Lista de Contatos</div>
         <div class="mt-5">
-            <input type="text" value="Pesquisar contato...." class="form-control"> 
+            <form action="/" method="GET">
+            <input placeholder="Pesquisar contato" type="text" name="search" id="search" class="form-control"/>
             <div class="mt-3 text-center">
-                <a href="#" class="btn btn-warning">Pesquisar</a>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Cadastrar
-                </button>        
+                
+                    <input type="submit" value="Pesquisar" class="btn btn-warning">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Cadastrar</button>        
+                </form>
             </div>              
         </div>
 
@@ -36,7 +37,14 @@
                     <p>{{$contato->email}}</p>
                     <label class="font20 text-color-success">Possui whatsapp </label>
                     <p>{{$contato->status}}</p>
-                </div>            
+                </div>   
+                <div class="text-center mb-4">
+                    <form action="/deletar/{{$contato->id}}" method="POST">
+                    @csrf
+                    <a href="/editar/{{$contato->id}}" class="btn btn-warning">Editar</a>                    
+                        <input type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja deletar este registro?')" value="Excluir"/>
+                    </form>
+                </div>         
             </div>  
             @endforeach
 
@@ -55,22 +63,22 @@
                         @csrf
                         <div class="form-group mb-3">
                             <label for="name">Nome</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Digite o seu nome...">
+                            <input type="text" required class="form-control" id="name" name="name" placeholder="Digite o seu nome...">
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="numberContact">Número para Contato</label>
-                            <input type="text" class="form-control" id="numberContact" name="numberContact" placeholder="DDD + Número">
+                            <input type="text" required class="form-control" id="numberContact" name="numberContact" placeholder="DDD + Número">
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email...">
+                            <input type="email" required class="form-control" id="email" name="email" placeholder="Digite seu email...">
                         </div> 
                         
                         <div class="form-group mb-3">
-                            <label for="email">Possui Whatsapp?</label>
-                            <input type="text" class="form-control" id="status" name="status" placeholder="Digite Sim ou Não">
+                            <label for="status">Possui Whatsapp?</label>
+                            <input type="text" required class="form-control" id="status" name="status" placeholder="Digite Sim ou Não">
                         </div> 
                     
                   </div>
@@ -82,7 +90,9 @@
             </form>
               </div>
         </div>
-        <!--FIM MODAL CADASTRAR-->
+        <!--FIM MODAL CADASTRAR-->   
+        
+
 
     </div>
 
