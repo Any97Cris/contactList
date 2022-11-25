@@ -18,3 +18,9 @@ Route::get('/', [ContactsController::class, 'index']);
 
 //Rota para cadastrar
 Route::post('/cadastrar', [ContactsController::class, 'create']);
+
+Route::get('/editar/{id}', [ContactsController::class, 'edit']);
+
+Route::post('/update/{id}', [ContactsController::class, 'update']);
+
+Route::post('/deletar/{id}', [ContactsController::class, 'destroy']);
